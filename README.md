@@ -5,6 +5,8 @@
 Выполняют студенты 3 курса 2 группы:
 *   [Дарья Загреба](https://github.com/Daasshh)
 *   [Никита Ягодницев](https://github.com/Happyer29)
+*   [Ходжаев Какагельди](https://github.com/Kh0jaev)
+*   [Сулиман Язан](https://github.com/Yazan99x)
   
 ## Описание проекта:
 ## Сайт
