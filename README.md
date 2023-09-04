@@ -20,7 +20,7 @@
 ## Сервисы
 * [YouTrack](https://zagreba.youtrack.cloud/agiles/141-3/current)
 * [Miro]()
-* [Figma]()
+* [Figma](https://www.figma.com/file/zp31hjrZl4w8JclFGv1YxQ/%D0%A1%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0-%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D0%B0?type=design&node-id=0%3A1&mode=design&t=c7nK09RQfPP6BVQf-1)
   
 ## Документация
 * [Техническое задание]()
