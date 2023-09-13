@@ -12,6 +12,14 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    const ROLE_USER = 'user';
+    const ROLE_MODERATOR = 'moderator';
+    const ROLE_ADMIN = 'admin';
+    const ROLES = [self::ROLE_USER, self::ROLE_MODERATOR, self::ROLE_ADMIN];
+    const DEFAULT_ROLE = self::ROLE_USER;
+
+    const PER_PAGE = 30;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -21,6 +29,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
+        'password_refresh_date',
     ];
 
     /**
@@ -40,6 +50,58 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'password' => 'hashed',
     ];
+
+    public function getId() {
+        return $this->id;
+    }
+
+    public function getRole(): string
+    {
+        if(in_array($this->role ?? null, self::ROLES)){
+            return $this->role;
+        }
+        return self::DEFAULT_ROLE;
+    }
+
+    public function setRole(string $role): void
+    {
+        if(!in_array($role, self::ROLES)){
+            return;
+        }
+        $this->role = $role;
+    }
+
+    public static function getRoleOrDefault(string $role): string
+    {
+        if(!in_array($role, self::ROLES)){
+            return self::DEFAULT_ROLE;
+        }
+        return $role;
+    }
+
+    public function isAdmin(): bool
+    {
+        return ($this->role ?? null) === self::ROLE_ADMIN;
+    }
+
+    public function isModerator(): bool
+    {
+        return ($this->role ?? null) === self::ROLE_MODERATOR;
+    }
+
+    public function isAnyManager(): bool
+    {
+        return in_array($this->role ?? null, [self::ROLE_MODERATOR, self::ROLE_ADMIN]);
+    }
+
+    public function isPasswordRefreshed(): bool
+    {
+        return !!$this->password_refresh_date;
+    }
+
+    public function needToRefreshPassword(): bool
+    {
+        return !$this->isPasswordRefreshed();
+    }
 }
