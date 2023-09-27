@@ -35,6 +35,6 @@
 * [Видеопрезентация проекта](https://drive.google.com/file/d/185P1IDfw27YIlb43S8nXS6FR4s7WyUHY/view?usp=sharing)
 
 ## Swagger
-* [Swagger документация]()
+* [Swagger документация](http://134.0.115.247:8080/)
 
 ## Аналитика
